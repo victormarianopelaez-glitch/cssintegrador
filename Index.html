@@ -18,13 +18,18 @@
     </header>
     
     <main>
-        <section class="carrusel">
-            <div class="carrusel-container">
-                <img src="imagenes/IMG_0065.JPG" alt="Image 1" class="carrusel-image">
-                <img src="imagenes/IMG_0066.JPG" alt="Image 2" class="carrusel-image">
-                <img src="imagenes/IMG_0067.JPG" alt="Image 3" class="carrusel-image">
-                <button class="carrusel-button prev" onclick="prevSlide()">&#10094;</button>
-                <button class="carrusel-button next" onclick="nextSlide()">&#10095;</button>
+        <div class="carousel-container">
+            
+            <img id="carousel-image" src="" alt="Imagen del carrusel">
+            
+            <button class="carousel-button prev" id="prev-button">‹</button>
+            <button class="carousel-button next" id="next-button">›</button>
+        </div>
+        
+        <div class="article-content">
+            <div class="column"><h2>Columna 1</h2><p>Contenido...</p></div>
+            <div class="column"><h2>Columna 2</h2><p>Contenido...</p></div>
+            <div class="column"><h2>Columna 3</h2><p>Contenido...</p></div>
             </div>
         </section>
 
@@ -38,5 +43,51 @@
         <p>&copy; 2023 Chadbruger. All rights reserved.</p>
     </footer>
 
+    
+  <script>
+        // 1. Array de URLs de imágenes (REQUISITO CUMPLIDO)
+        const imageURLs = [
+            'Imagenes/IMG_0063.JPG', // Imagen 1
+            'Imagenes/IMG_0064.JPG', // Imagen 2
+            'Imagenes/IMG_0065.JPG', // Imagen 3
+            'Imagenes/IMG_0066.JPG'  // Imagen 4
+        ];
+
+        // 2. Variables de estado y elementos del DOM
+        let currentIndex = 0;
+        const carouselImage = document.getElementById('carousel-image');
+        const prevButton = document.getElementById('prev-button');
+        const nextButton = document.getElementById('next-button');
+        const totalImages = imageURLs.length;
+
+        // 3. Función principal para mostrar la imagen actual
+        function showImage(index) {
+            // Verifica y asigna el src de la imagen desde el array
+            carouselImage.src = imageURLs[index];
+            currentIndex = index;
+        }
+
+        // 4. Función para avanzar (Circular)
+        function nextImage() {
+            // Lógica circular: si es el último, vuelve al 0
+            currentIndex = (currentIndex + 1) % totalImages;
+            showImage(currentIndex);
+        }
+
+        // 5. Función para retroceder (Circular)
+        function prevImage() {
+            // Lógica circular: si es el primero (0), vuelve al último
+            // Se añade totalImages para evitar números negativos en el operador %
+            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+            showImage(currentIndex);
+        }
+
+        // 6. Asignación de eventos a los botones
+        prevButton.addEventListener('click', prevImage);
+        nextButton.addEventListener('click', nextImage);
+
+        // 7. Inicialización: Muestra la primera imagen al cargar la página
+        showImage(currentIndex);
+    </script>
 </body>
 </html>
