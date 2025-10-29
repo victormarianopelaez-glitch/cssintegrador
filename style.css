@@ -118,3 +118,65 @@ nav.navbar ul.nav-links li a:hover {
 header {
     margin-bottom: 20px;
 }
+/* Estilos para el formulario */
+
+label {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 6px;
+        color: #000000;
+        font-weight: bold;
+        font-size: 18px;
+      }
+      input,
+      select,
+      textarea {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #df9322;
+    outline: none;
+    background: white
+      }
+
+      .botones {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 20px;
+            padding: 10px 20px;
+           
+            
+      }
+      .boton{margin-top: 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            color: rgb(255, 255, 255);
+            background-color: #df9322;
+
+      }
+      .boton:hover {
+            background-color: #333333;           
+      }
+
+      form {
+        border: 3px solid #df9322;
+        border-radius: 20px;
+        padding: 20px;
+        box-sizing: border-box;
+        background: #f8f8ff;
+        box-shadow: 4px 8px #df9322;
+        width: 350px        ;
+        margin: 0 auto;           
+        text-align: left;
+      }
+
+  .contact-header {
+    justify-content: center;
+    text-align: center;
+    color: #df9322;
+    font-size: 28px;
+    margin-bottom: 20px;
+}

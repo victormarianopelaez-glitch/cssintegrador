@@ -9,37 +9,47 @@
 <body>
     <header>
         <nav>
-            <ul>
+        <nav class="navbar">
+            <ul class ="nav-links">
                 <li><a href="Index.html">Inicio</a></li>
-                <li><a href="Articulos.html">Articulos</a></li>
+                <li><a href="Articulos.html">Artículos</a></li>
                 <li><a href="Contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h1>Contactanos!</h1>
-        <form id="contact-form">
-            <div>
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-            </div>
-            <div>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <span id="email-error" class="error-message"></span>
-            </div>
-            <div>
-                <label for="telefono">Telefono:</label>
-                <input type="tel" id="telefono" name="telefono" required>
-                <span id="tel-error" class="error-msj"></span>
-            </div>
-            <div>
-                <label for="mensaje">Mensaje:</label>
-                <textarea id="menjaje" name="mensaje" required></textarea>
-            </div>
-            <button type="submit">Enviar</button>
-        </form>
-        <div id="submit-result"></div>
+        <div class="container">
+      <h1 class="contact-header">Escribinos un mensaje</h1>
+      <form>
+        <h2>Mis datos:</h2>
+        <label for="nombre">Nombre y Apellido:</label>
+        <input type="text" id="nombre" name="nombre" minlength="10" maxlength="50" required />
+
+        <label for="genero">Género:</label>
+        <select id="genero" name="genero" required>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+            <option value="otro">Otro</option>
+          </select>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="telefono">Telefono:</label>
+        <input type="tel" id="telefono" name="telefono"  />
+
+        <label for="fechaNacimiento">Fecha de nacimiento:</label>
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento" min="1900-09-24" max="2025-09-24">
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+
+        <div class="botones">
+
+        <button type="submit" class="boton">Enviar</button>
+        <button type="reset" class="boton">Limpiar</button>
+          
+        </div>
     </main>
     <footer>
         <p>&copy; 2023 Chadburguer.</p>
