@@ -8,8 +8,8 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
+        <nav class="navbar">
+            <ul class ="nav-links">
                 <li><a href="Index.html">Inicio</a></li>
                 <li><a href="Articulos.html">Articulos</a></li>
                 <li><a href="Contacto.html">Contacto</a></li>
@@ -27,9 +27,12 @@
         </div>
         
         <div class="article-content">
-            <div class="column"><h2>Columna 1</h2><p>Contenido...</p></div>
-            <div class="column"><h2>Columna 2</h2><p>Contenido...</p></div>
-            <div class="column"><h2>Columna 3</h2><p>Contenido...</p></div>
+            <div class="column"><h2>Quienes somos?</h2><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae magnam blanditiis, maxime, quisquam in maiores velit nemo possimus error officiis perspiciatis ad similique delectus quae sapiente, quod impedit dolorem modi!*
+            </p></div>
+            <div class="column"><h2>Columna 2</h2><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil expedita provident modi tenetur, ipsa est consequuntur ducimus culpa et. Quas tempora deserunt dolorem incidunt rem laborum quo dicta asperiores error.
+            Similique sunt modi dolorum aperiam blanditiis iusto maxime! Magni eligendi debitis animi ullam quaerat cum ut officiis rem perferendis, voluptate explicabo natus, dignissimos, aut quos saepe amet! Aliquam, quo reiciendis!</p></div>
+            <div class="column"><h2>Columna 3</h2><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, error. Tempore minus perferendis ducimus eligendi id dolore magni deleniti nisi commodi, sed distinctio porro nihil rerum expedita harum blanditiis aliquid.
+            Minus cum, consectetur voluptatem corporis exercitationem fugit esse, optio asperiores debitis perferendis tempore ipsa. Iste aliquid id perspiciatis expedita doloribus natus, ipsum asperiores facilis mollitia explicabo veniam, voluptate ea sit?</p></div>
             </div>
         </section>
 
@@ -45,48 +48,46 @@
 
     
   <script>
-        // 1. Array de URLs de imágenes (REQUISITO CUMPLIDO)
+        
         const imageURLs = [
-            'Imagenes/IMG_0063.JPG', // Imagen 1
-            'Imagenes/IMG_0064.JPG', // Imagen 2
-            'Imagenes/IMG_0065.JPG', // Imagen 3
-            'Imagenes/IMG_0066.JPG'  // Imagen 4
+            'Imagenes/IMG_0063.JPG', 
+            'Imagenes/IMG_0064.JPG', 
+            'Imagenes/IMG_0065.JPG', 
+            'Imagenes/IMG_0066.JPG'  
         ];
 
-        // 2. Variables de estado y elementos del DOM
+        
         let currentIndex = 0;
         const carouselImage = document.getElementById('carousel-image');
         const prevButton = document.getElementById('prev-button');
         const nextButton = document.getElementById('next-button');
         const totalImages = imageURLs.length;
 
-        // 3. Función principal para mostrar la imagen actual
+       
         function showImage(index) {
-            // Verifica y asigna el src de la imagen desde el array
+            
             carouselImage.src = imageURLs[index];
             currentIndex = index;
         }
 
-        // 4. Función para avanzar (Circular)
+        
         function nextImage() {
-            // Lógica circular: si es el último, vuelve al 0
             currentIndex = (currentIndex + 1) % totalImages;
             showImage(currentIndex);
         }
 
-        // 5. Función para retroceder (Circular)
+        
         function prevImage() {
-            // Lógica circular: si es el primero (0), vuelve al último
-            // Se añade totalImages para evitar números negativos en el operador %
+            
             currentIndex = (currentIndex - 1 + totalImages) % totalImages;
             showImage(currentIndex);
         }
 
-        // 6. Asignación de eventos a los botones
+     
         prevButton.addEventListener('click', prevImage);
         nextButton.addEventListener('click', nextImage);
 
-        // 7. Inicialización: Muestra la primera imagen al cargar la página
+       
         showImage(currentIndex);
     </script>
 </body>
