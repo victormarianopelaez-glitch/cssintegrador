@@ -20,29 +20,27 @@
     <main>
         <div class="container">
       <h1 class="contact-header">Escribinos un mensaje</h1>
-      <form>
+      <form id="miFormulario">
         <h2>Mis datos:</h2>
         <label for="nombre">Nombre y Apellido:</label>
         <input type="text" id="nombre" name="nombre" minlength="10" maxlength="50" required />
 
-        <label for="genero">Género:</label>
-        <select id="genero" name="genero" required>
-            <option value="masculino">Masculino</option>
-            <option value="femenino">Femenino</option>
-            <option value="otro">Otro</option>
-          </select>
+        <div class="error-message" id="errorNombre"></div>
 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required />
 
+        <div class="error-message" id="errorEmail"></div>
+
         <label for="telefono">Telefono:</label>
         <input type="tel" id="telefono" name="telefono"  />
 
-        <label for="fechaNacimiento">Fecha de nacimiento:</label>
-        <input type="date" id="fechaNacimiento" name="fechaNacimiento" min="1900-09-24" max="2025-09-24">
+        <div class="error-message" id="errorTelefono"></div>
 
         <label for="mensaje">Mensaje:</label>
-        <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+        <div class="error-message" id="errorMensaje"></div>
 
         <div class="botones">
 
@@ -50,9 +48,129 @@
         <button type="reset" class="boton">Limpiar</button>
           
         </div>
+        </form>
+
+    <div id="resultados">
+    <h3>Datos Enviados:</h3>
+    </div>
+
     </main>
     <footer>
         <p>&copy; 2023 Chadburguer.</p>
     </footer>
+
+       <script>
+      
+        document.addEventListener('DOMContentLoaded', function() {
+            
+         
+            const formulario = document.getElementById('miFormulario');
+            const inputNombre = document.getElementById('nombre');
+            const inputEmail = document.getElementById('email');
+            const inputTelefono = document.getElementById('telefono');
+            
+            
+            const errorNombre = document.getElementById('errorNombre');
+            const errorEmail = document.getElementById('errorEmail');
+            const errorTelefono = document.getElementById('errorTelefono');
+            
+            
+            const divResultados = document.getElementById('resultados');
+
+           
+            formulario.addEventListener('submit', function(event) {
+              
+                event.preventDefault(); 
+                
+               
+                errorNombre.textContent = '';
+                errorEmail.textContent = '';
+                
+                
+                const nombre = inputNombre.value.trim();
+                const email = inputEmail.value.trim();
+                
+                let esValido = true; 
+
+                
+                if (nombre === '') {
+                    errorNombre.textContent = 'El campo de nombre no puede estar vacío.';
+                    esValido = false;
+                }
+
+                
+                const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                
+                if (email === '') {
+                    errorEmail.textContent = 'El campo de email no puede estar vacío.';
+                    esValido = false;
+                } else if (!emailRegex.test(email)) {
+                    errorEmail.textContent = 'El formato del email no es válido.';
+                    esValido = false;
+                }
+                
+                
+                // Validar teléfono (opcional pero si se proporciona debe tener formato válido)
+                const telefono = inputTelefono.value.trim();
+                const telefonoRegex = /^[0-9]{10}$/;  // Asume un número de 10 dígitos
+
+                if (telefono !== '' && !telefonoRegex.test(telefono)) {
+                    errorTelefono.textContent = 'El teléfono debe tener 10 dígitos numéricos.';
+                    esValido = false;
+                }
+
+                // Validar mensaje (requerido)
+                const mensaje = document.getElementById('mensaje').value.trim();
+                const errorMensaje = document.getElementById('errorMensaje');
+                errorMensaje.textContent = '';
+
+                if (mensaje === '') {
+                    errorMensaje.textContent = 'El mensaje no puede estar vacío.';
+                    esValido = false;
+                }
+
+                if (esValido) {
+                    mostrarDatosEnviados(nombre, email, telefono, mensaje);
+                    formulario.reset();
+                }
+            });
+
+            function mostrarDatosEnviados(nombre, email, telefono, mensaje) {
+                const divContenedor = document.createElement('div');
+                divContenedor.className = 'dato-enviado';
+                
+                const pNombre = document.createElement('p');
+                const strongNombre = document.createElement('strong');
+                strongNombre.textContent = 'Nombre: ';
+                pNombre.appendChild(strongNombre);
+                pNombre.appendChild(document.createTextNode(nombre));
+                
+                const pEmail = document.createElement('p');
+                const strongEmail = document.createElement('strong');
+                strongEmail.textContent = 'Email: ';
+                pEmail.appendChild(strongEmail);
+                pEmail.appendChild(document.createTextNode(email));
+                
+                const pTelefono = document.createElement('p');
+                const strongTelefono = document.createElement('strong');
+                strongTelefono.textContent = 'Teléfono: ';
+                pTelefono.appendChild(strongTelefono);
+                pTelefono.appendChild(document.createTextNode(telefono || 'No proporcionado'));
+                
+                const pMensaje = document.createElement('p');
+                const strongMensaje = document.createElement('strong');
+                strongMensaje.textContent = 'Mensaje: ';
+                pMensaje.appendChild(strongMensaje);
+                pMensaje.appendChild(document.createTextNode(mensaje));
+                
+                divContenedor.appendChild(pNombre);
+                divContenedor.appendChild(pEmail);
+                divContenedor.appendChild(pTelefono);
+                divContenedor.appendChild(pMensaje);
+                
+                divResultados.appendChild(divContenedor);
+            }
+        });
+    </script>
 </body>
 </html>

@@ -66,6 +66,8 @@ nav.navbar ul.nav-links li a:hover {
     text-decoration: underline;
 }
 
+
+
 /* =========================================================
    INDEX.HTML
    ========================================================= */
@@ -232,8 +234,39 @@ textarea {
     margin-bottom: 20px;
 }
 
+/* =========================================================
+   CONTACTO.HTML - Datos Enviados
+   ========================================================= */
+#resultados {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 
+#resultados h3 {
+    color: #333;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #df9322;
+    padding-bottom: 5px;
+}
 
-/* Imagenes\IMG_0074.JPG
-Imagenes\IMG_0098.JPG
-Imagenes\IMG_0110.JPG */
+.dato-enviado {
+    background-color: #fff;
+    padding: 15px;
+    margin: 10px 0;
+    border-left: 4px solid #df9322;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.dato-enviado p {
+    margin: 5px 0;
+    color: #333;
+}
+
+.dato-enviado strong {
+    color: #df9322;
+    font-weight: bold;
+}
