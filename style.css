@@ -1,31 +1,79 @@
-
+/* =========================================================
+   ESTILOS GENERALES
+   ========================================================= */
 html {
     overflow-y: scroll;
 }
 
+body {
+    background-image: url('Imagenes/fondo.jpg');
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    line-height: 2;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================================================
+   NAVBAR (común a todas las páginas)
+   ========================================================= */
+header {
+    margin-bottom: 20px;
+}
+
+nav.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav.navbar ul.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav.navbar ul.nav-links li {
+    margin: 0 60px;
+}
+
+nav.navbar ul.nav-links li a {
+    color: #df9322;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav.navbar ul.nav-links li a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================================
+   INDEX.HTML
+   ========================================================= */
+
+/* ---- Carrusel ---- */
 .carousel-container {
     position: relative;
-    
-
     max-width: 800px; 
     height: 500px;   
-    
     margin: 30px auto; 
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-
 
 #carousel-image { 
     width: 100%;    
     height: 100%;   
     display: block;
     border-radius: 5px;
-    
-
     object-fit: fill; 
 }
-
 
 .carousel-button {
     position: absolute;
@@ -46,14 +94,10 @@ html {
     background: rgba(0, 0, 0, 0.8);
 }
 
-.prev {
-    left: 10px;
-}
+.prev { left: 10px; }
+.next { right: 10px; }
 
-.next {
-    right: 10px;
-}
-
+/* ---- Sección de columnas ---- */
 .article-content {
     display: flex;
     justify-content: space-between;
@@ -69,111 +113,106 @@ html {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+
 .column h2 {
     margin-top: 0;
     color: #333;
 }
+
 .column p {
     color: #666;
     line-height: 1.6;
 }
+
 @media (max-width: 768px) {
     .article-content {
         flex-direction: column;
     }
 }
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 2;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+/* 
+   ARTICULOS.HTML
+*/
+
+.column-article {
+    flex: 1;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: left;
 }
 
-nav.navbar {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
+.column-article h2 {
+    margin-top: 0;
+    color: #333;
 }
-nav.navbar ul.nav-links {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
+
+.column-article p {
+    color: #555;
+    line-height: 1.6;
 }
-nav.navbar ul.nav-links li {
-    margin: 0 60px;
+
+/* =========================================================
+   CONTACTO.HTML
+   ========================================================= */
+
+/* ---- Formulario ---- */
+form {
+    border: 3px solid #df9322;
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    background: #f8f8ff;
+    box-shadow: 4px 8px #df9322;
+    width: 350px;
+    margin: 0 auto;           
+    text-align: left;
 }
-nav.navbar ul.nav-links li a {
-    color: #df9322;
-    font-size: 20px;
-    text-decoration: none;
-    font-weight: bold;
-}
-nav.navbar ul.nav-links li a:hover {
-    text-decoration: underline;
-}
-header {
-    margin-bottom: 20px;
-}
-/* Estilos para el formulario */
 
 label {
-        display: block;
-        margin-top: 10px;
-        margin-bottom: 6px;
-        color: #000000;
-        font-weight: bold;
-        font-size: 18px;
-      }
-      input,
-      select,
-      textarea {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 6px;
+    color: #000000;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+input,
+select,
+textarea {
     width: 100%;
     padding: 5px;
     box-sizing: border-box;
     border: none;
     border-bottom: 2px solid #df9322;
     outline: none;
-    background: white
-      }
+    background: white;
+}
 
-      .botones {
-            display: flex;
-            justify-content: space-evenly;
-            margin-top: 20px;
-            padding: 10px 20px;
-           
-            
-      }
-      .boton{margin-top: 20px;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            color: rgb(255, 255, 255);
-            background-color: #df9322;
+.botones {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    padding: 10px 20px;
+}
 
-      }
-      .boton:hover {
-            background-color: #333333;           
-      }
+.boton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    background-color: #df9322;
+}
 
-      form {
-        border: 3px solid #df9322;
-        border-radius: 20px;
-        padding: 20px;
-        box-sizing: border-box;
-        background: #f8f8ff;
-        box-shadow: 4px 8px #df9322;
-        width: 350px        ;
-        margin: 0 auto;           
-        text-align: left;
-      }
+.boton:hover {
+    background-color: #333333;           
+}
 
-  .contact-header {
+.contact-header {
     justify-content: center;
     text-align: center;
     color: #df9322;
