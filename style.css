@@ -17,6 +17,19 @@ body {
     padding: 0;
 }
 
+h1 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    text-shadow: 2px 2px  rgba(0,0,0,0.5);
+    color: #e99311;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.904);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+}
 /* =========================================================
    NAVBAR (común a todas las páginas)
    ========================================================= */
@@ -135,23 +148,22 @@ nav.navbar ul.nav-links li a:hover {
 */
 
 .column-article {
-    flex: 1;
-    background: #f9f9f9;
+    max-width: 800px;
+    margin: 20px auto;
     padding: 20px;
+    background: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    text-align: left;
 }
-
 .column-article h2 {
-    margin-top: 0;
     color: #333;
 }
-
 .column-article p {
-    color: #555;
+    color: #666;
     line-height: 1.6;
 }
+
+
 
 /* =========================================================
    CONTACTO.HTML
@@ -219,3 +231,9 @@ textarea {
     font-size: 28px;
     margin-bottom: 20px;
 }
+
+
+
+/* Imagenes\IMG_0074.JPG
+Imagenes\IMG_0098.JPG
+Imagenes\IMG_0110.JPG */
