@@ -110,16 +110,16 @@
                 }
                 
                 
-                // Validar teléfono (opcional pero si se proporciona debe tener formato válido)
+                
                 const telefono = inputTelefono.value.trim();
-                const telefonoRegex = /^[0-9]{10}$/;  // Asume un número de 10 dígitos
+                const telefonoRegex = /^[0-9]{10}$/;  
 
                 if (telefono !== '' && !telefonoRegex.test(telefono)) {
                     errorTelefono.textContent = 'El teléfono debe tener 10 dígitos numéricos.';
                     esValido = false;
                 }
 
-                // Validar mensaje (requerido)
+                
                 const mensaje = document.getElementById('mensaje').value.trim();
                 const errorMensaje = document.getElementById('errorMensaje');
                 errorMensaje.textContent = '';

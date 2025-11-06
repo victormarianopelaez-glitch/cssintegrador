@@ -15,9 +15,17 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    align-items: center
 }
 
 h1 {
+    display: inline-block;
     text-align: center;
     font-size: 36px;
     font-weight: bold;
@@ -27,12 +35,36 @@ h1 {
     background-color: #bc5c298e;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 10px 20px;
 
+}
+
+.caja-info {
+    flex: 1 1 0;
+    background: #FFF8E1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: #666; 
+    
+}
+
+.caja-info h2 {
+    margin-top: 0;
+    color: #333;
+}
+.caja-info img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
 }
 /* =========================================================
    NAVBAR (común a todas las páginas)
    ========================================================= */
 header {
+    width: 100%;
     margin-bottom: 20px;
 }
 
@@ -40,6 +72,7 @@ nav.navbar {
     background-color: #333;
     color: #fff;
     padding: 10px 0;
+    
 }
 
 nav.navbar ul.nav-links {
@@ -120,23 +153,6 @@ nav.navbar ul.nav-links li a:hover {
     gap: 20px;
 }
 
-.column {
-    flex: 1;
-    background: #FFF8E1;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.column h2 {
-    margin-top: 0;
-    color: #333;
-}
-
-.column p {
-    color: #666;
-    line-height: 1.6;
-}
 
 @media (max-width: 768px) {
     .article-content {
@@ -147,24 +163,6 @@ nav.navbar ul.nav-links li a:hover {
 /* 
    ARTICULOS.HTML
 */
-
-.column-article {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #FFF8E1;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-.column-article h2 {
-    color: #333;
-}
-.column-article p {
-    color: #666;
-    line-height: 1.6;
-}
-
-
 
 /* =========================================================
    CONTACTO.HTML
