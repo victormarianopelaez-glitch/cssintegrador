@@ -27,22 +27,22 @@
       <form id="miFormulario">
         <h2>Mis datos:</h2>
         <label for="nombre">Nombre y Apellido:</label>
-        <input type="text" id="nombre" name="nombre" minlength="10" maxlength="50" required />
+        <input type="text" id="nombre" name="nombre" />
 
         <div class="error-message" id="errorNombre"></div>
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
+        <input type="text" id="email" name="email" />
 
         <div class="error-message" id="errorEmail"></div>
 
         <label for="telefono">Telefono:</label>
-        <input type="tel" id="telefono" name="telefono"  />
+        <input type="text" id="telefono" name="telefono"  />
 
         <div class="error-message" id="errorTelefono"></div>
 
         <label for="mensaje">Mensaje:</label>
-        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+        <textarea id="mensaje" name="mensaje" rows="4"></textarea>
 
         <div class="error-message" id="errorMensaje"></div>
 
@@ -84,6 +84,7 @@
             const errorNombre = document.getElementById('errorNombre');
             const errorEmail = document.getElementById('errorEmail');
             const errorTelefono = document.getElementById('errorTelefono');
+            const errorMensaje = document.getElementById('errorMensaje');
             
             
             const divResultados = document.getElementById('resultados');
@@ -92,18 +93,23 @@
             formulario.addEventListener('submit', function(event) {
                 event.preventDefault(); 
                 
+
                 errorNombre.textContent = '';
                 errorEmail.textContent = '';
-                
+                errorTelefono.textContent = ''; 
+                errorMensaje.textContent = '';                
                 
                 const nombre = inputNombre.value.trim();
                 const email = inputEmail.value.trim();
                 
                 let esValido = true; 
 
-                
+
                 if (nombre === '') {
                     errorNombre.textContent = 'El campo de nombre no puede estar vacío.';
+                    esValido = false;
+                } else if (nombre.length < 10) {
+                    errorNombre.textContent = 'El nombre debe tener al menos 10 caracteres.';
                     esValido = false;
                 }
 
@@ -121,17 +127,18 @@
                 
                 
                 const telefono = inputTelefono.value.trim();
+
                 const telefonoRegex = /^[0-9]{10}$/;  
 
+
                 if (telefono !== '' && !telefonoRegex.test(telefono)) {
-                    errorTelefono.textContent = 'El teléfono debe tener 10 dígitos numéricos.';
+                    errorTelefono.textContent = 'El teléfono debe tener 10 dígitos numéricos (sin 0 ni 15).';
                     esValido = false;
                 }
 
                 
                 const mensaje = document.getElementById('mensaje').value.trim();
-                const errorMensaje = document.getElementById('errorMensaje');
-                errorMensaje.textContent = '';
+
 
                 if (mensaje === '') {
                     errorMensaje.textContent = 'El mensaje no puede estar vacío.';
